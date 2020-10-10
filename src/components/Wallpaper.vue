@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import CoinSlider from "@/components/CoinSlider";
 export default {
   name: 'Wallpaper',
@@ -37,6 +38,9 @@ export default {
     refresh(){
       this.$refs.coinSlider.refresh()
     }
+  },
+  created() {
+    axios.get()
   }
 }
 </script>
