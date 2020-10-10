@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <Wallpaper/>
+    <Wallpaper ref="wallpaper"/>
+    <ProductList/>
   </div>
 </template>
 
 <script>
 import Wallpaper from './components/Wallpaper.vue'
-
+import ProductList from './components/ProductList'
 export default {
   name: 'App',
   components: {
-    Wallpaper
+    Wallpaper,
+    ProductList
   }
 }
 </script>

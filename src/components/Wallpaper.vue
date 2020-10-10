@@ -1,7 +1,6 @@
 <template>
   <div>
     <CoinSlider ref="coinSlider" :options="options"/>
-    <button class="refresh" @click="refresh">刷新</button>
   </div>
 </template>
 
