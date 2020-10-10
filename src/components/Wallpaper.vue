@@ -19,6 +19,7 @@ export default {
         height:window.innerHeight,
         delay:24*3600*1000*7,
         navigation:false,
+        bgOpacity: 0.8,
         images:[
           ["http://h1.ioliu.cn/bing/BagpipeOpera_ZH-CN9506207351_1920x1080.jpg?imageslim","javascript:;"],
           ["http://h1.ioliu.cn/bing/KnittedPoppies_EN-GB11009515775_1920x1080.jpg?imageslim","javascript:;"],
