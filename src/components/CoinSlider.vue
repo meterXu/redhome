@@ -5,12 +5,18 @@
 </template>
 
 <script>
-import coinSlider from 'coin-slider'
+import $ from 'jquery'
+import 'coin-slider'
 export default {
   name: "CoinSlider",
-  props: ["options"],
+  props: ['options'],
+  methods:{
+    refresh(){
+      $("#bg").coinslider('refresh')
+    }
+  },
   mounted() {
-    new coinSlider("#bg",this.options)
+    $("#bg").coinslider(this.options)
   }
 }
 </script>

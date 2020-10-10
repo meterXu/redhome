@@ -1,6 +1,7 @@
 <template>
   <div>
-    <CoinSlider options="options"/>
+    <CoinSlider ref="coinSlider" :options="options"/>
+    <button class="refresh" @click="refresh">刷新</button>
   </div>
 </template>
 
@@ -11,14 +12,12 @@ export default {
   props: {
     msg: String
   },
-  components:[
-    CoinSlider
-  ],
+  components:{CoinSlider},
   data(){
     return {
       options:{
         width:'100%',
-        height:500,
+        height:window.innerHeight,
         delay:24*3600*1000*7,
         navigation:false,
         images:[
@@ -33,10 +32,18 @@ export default {
         ]
       }
     }
+  },
+  methods:{
+    refresh(){
+      this.$refs.coinSlider.refresh()
+    }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.refresh{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
 </style>
