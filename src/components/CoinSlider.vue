@@ -1,17 +1,17 @@
 <template>
-  <div id="bg">
+  <div id="bg" ref="bg">
 
   </div>
 </template>
 
 <script>
+import coinSlider from 'coin-slider'
 export default {
-    name:"CoinSlider",
-    props:{
-        width:{
-            default:565,
-        }
-    }
+  name: "CoinSlider",
+  props: ["options"],
+  mounted() {
+    new coinSlider("#bg",this.options)
+  }
 }
 </script>
 
