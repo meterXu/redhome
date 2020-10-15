@@ -24,22 +24,32 @@ export default {
         navigation:false,
         bgOpacity: 0.8,
         images:[]
-      }
+      },
+      showImgNum:0
     }
   },
   methods:{
     refresh(){
-      this.$refs.coinSlider.refresh()
+      if(this.showImgNum<this.options.images.length-1){
+        this.showImgNum++
+        this.$refs.coinSlider.refresh()
+      }else{
+        this.showImgNum=0
+        this.getImgList()
+      }
+    },
+    getImgList(){
+      axios.get('/bing/list').then(res=>{
+        if(res&&res.data){
+          this.options.images = res.data.map(c=>{
+            return [c,'javascript:;']
+          })
+        }
+      })
     }
   },
   created() {
-    axios.get('/bing/list').then(res=>{
-      if(res&&res.data){
-        this.options.images = res.data.map(c=>{
-          return [c,'javascript:;']
-        })
-      }
-    })
+    this.getImgList()
   }
 }
 </script>
