@@ -25,23 +25,36 @@ export default {
         bgOpacity: 0.8,
         images:[]
       },
+      cacheImages:[],
       showImgNum:0
     }
   },
   methods:{
     refresh(){
       if(this.showImgNum<this.options.images.length-1){
+        if(this.showImgNum===2){
+          this.cacheImgList()
+        }
         this.showImgNum++
         this.$refs.coinSlider.refresh()
       }else{
         this.showImgNum=0
-        this.getImgList()
+        this.options.images = this.cacheImages
       }
     },
     getImgList(){
       axios.get('/bing/list').then(res=>{
         if(res&&res.data){
           this.options.images = res.data.map(c=>{
+            return [c,'javascript:;']
+          })
+        }
+      })
+    },
+    cacheImgList(){
+      axios.get('/bing/list').then(res=>{
+        if(res&&res.data){
+          this.cacheImages = res.data.map(c=>{
             return [c,'javascript:;']
           })
         }

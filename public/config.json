@@ -1,3 +1,45 @@
 {
-  "baseUrl": "https://server.isaacxu.com:3001/"
+  "baseUrl": "https://server.isaacxu.com:3001/",
+  "items": [
+    {
+      "title": "百度",
+      "url": "http://www.baidu.com"
+    },
+    {
+      "title": "React",
+      "url": "https://zh-hans.reactjs.org/"
+    },
+    {
+      "title": "知乎",
+      "url": "https://www.zhihu.com/signin?next=%2F"
+    },
+    {
+      "title": "github",
+      "url": "http://www.github.com"
+    },
+    {
+      "title": "慕客",
+      "url": "https://www.mockplus.cn/"
+    },
+    {
+      "title": "iconfont",
+      "url": "https://www.iconfont.cn/"
+    },
+    {
+      "title": "codesandbox",
+      "url": "https://codesandbox.io/dashboard"
+    },
+    {
+      "title": "netlify",
+      "url": "https://app.netlify.com/"
+    },
+    {
+      "title": "Vue",
+      "url": "https://cn.vuejs.org/index.html"
+    },
+    {
+      "title": "less",
+      "url": "http://lesscss.org/"
+    }
+  ]
 }

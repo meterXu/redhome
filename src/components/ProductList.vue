@@ -14,58 +14,7 @@
         name: "ProductList",
         data() {
             return {
-                items: [
-                    {
-                        title: "YYJK（南京）",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/yyjk/",
-                    },
-                    {
-                        title: "YYJK（捷通）",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/dcyyjk/",
-                    },
-                    {
-                        title: "JetScan",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/jetscan/",
-                    },
-                    {
-                        title: "前端框架",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/apolloFrontend/",
-                    },
-                    {
-                        title: "qunee help",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/qunee/jsdoc/",
-                    },
-                    {
-                        title: "RPA",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/rpa/",
-                    },
-                    {
-                        title: "XSLab",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/xslab/",
-                    },
-                    {
-                        title: "XSLab help",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/xsclub/",
-                    },
-                    {
-                        title: "zabbix api",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/jqzabbix/",
-                    },
-                    {
-                        title: "wkdoc",
-                        img: "",
-                        url: "http://dcjet.isaacxu.com/wkdoc",
-                    },
-                ],
+                items: this.$config.items,
                 canRefresh: true
             };
         },
