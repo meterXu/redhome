@@ -32,11 +32,12 @@ export default {
   methods:{
     refresh(){
       if(this.showImgNum<this.options.images.length-1){
-        if(this.showImgNum===2){
+        if(this.showImgNum===Math.floor(this.options.images.length/2)){
           this.cacheImgList()
         }
         this.showImgNum++
         this.$refs.coinSlider.refresh()
+        window.localStorage.setItem('RD-HOME-BG',JSON.stringify(this.options.images[this.showImgNum]))
       }else{
         this.showImgNum=0
         this.options.images = this.cacheImages
@@ -62,7 +63,14 @@ export default {
     }
   },
   created() {
-    this.getImgList()
+    const rdHomeBg = window.localStorage.getItem('RD-HOME-BG')
+    if(rdHomeBg){
+      this.cacheImgList()
+      this.options.images = JSON.parse(rdHomeBg)
+    }else {
+      this.getImgList()
+    }
+
   }
 }
 </script>
