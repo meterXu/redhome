@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
-    "coin-slider": "^1.0.3",
+    "coin-slider": "^1.0.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {
