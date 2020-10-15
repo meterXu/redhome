@@ -15,6 +15,14 @@ export default {
       $("#bg").coinslider('refresh')
     }
   },
+  watch:{
+    options:{
+      handler:function (v) {
+        $("#bg").coinslider(v)
+      },
+      deep:true
+    }
+  },
   mounted() {
     $("#bg").coinslider(this.options)
   }
