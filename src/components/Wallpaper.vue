@@ -37,11 +37,11 @@ export default {
         }
         this.showImgNum++
         this.$refs.coinSlider.refresh()
-        window.localStorage.setItem('RD-HOME-BG',JSON.stringify(this.options.images[this.showImgNum]))
       }else{
         this.showImgNum=0
         this.options.images = this.cacheImages
       }
+      window.localStorage.setItem('RD-HOME-BG',JSON.stringify(this.options.images[this.showImgNum]))
     },
     getImgList(){
       axios.get('/bing/list').then(res=>{
@@ -62,11 +62,11 @@ export default {
       })
     }
   },
-  created() {
+  mounted() {
     const rdHomeBg = window.localStorage.getItem('RD-HOME-BG')
     if(rdHomeBg){
       this.cacheImgList()
-      this.options.images = JSON.parse(rdHomeBg)
+      this.options.images = [JSON.parse(rdHomeBg)]
     }else {
       this.getImgList()
     }
