@@ -21,6 +21,7 @@ export default {
         width:'100%',
         height:window.innerHeight,
         delay:24*3600*1000*7,
+        sDelay:50,
         navigation:false,
         bgOpacity: 0.8,
         images:[]

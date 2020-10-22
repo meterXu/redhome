@@ -26,7 +26,7 @@
                     const that = this
                     setTimeout(() => {
                         that.canRefresh = true
-                    }, 1000)
+                    }, 2000)
                 }
             }
         }
