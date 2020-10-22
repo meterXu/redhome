@@ -1,5 +1,6 @@
 {
   "title": "研发之家",
+  "favicon": "./home.svg",
   "baseUrl": "https://server.isaacxu.com:3001/",
   "items": [
     {

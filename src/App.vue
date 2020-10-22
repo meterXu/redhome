@@ -16,6 +16,7 @@ export default {
   },
   created() {
     document.title = this.$config.title
+    document.querySelector('link[rel="icon"]').href=this.$config.favicon
   }
 }
 </script>
