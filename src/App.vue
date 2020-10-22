@@ -13,6 +13,9 @@ export default {
   components: {
     Wallpaper,
     ProductList
+  },
+  created() {
+    document.title = this.$config.title
   }
 }
 </script>
