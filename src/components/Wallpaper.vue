@@ -40,34 +40,42 @@ export default {
         this.$refs.coinSlider.refresh()
       }else{
         this.showImgNum=0
-        this.options.images = this.cacheImages
+        this.options.images = [...this.cacheImages]
       }
       window.localStorage.setItem('RD-HOME-BG',JSON.stringify(this.options.images[this.showImgNum]))
     },
     getImgList(){
       axios.get('/bing/list').then(res=>{
-        if(res&&res.data){
+        if(res&&res.data&&res.data.length>0){
           this.options.images = res.data.map(c=>{
             return [c,'javascript:;']
           })
+        }else{
+          this.options.images = [...this.$config.defaultImages]
         }
       })
     },
-    cacheImgList(){
+    cacheImgList(ignoreFirst){
       axios.get('/bing/list').then(res=>{
-        if(res&&res.data){
+        if(res&&res.data&&res.data.length>0){
           this.cacheImages = res.data.map(c=>{
             return [c,'javascript:;']
           })
+        }else{
+          this.cacheImages = [...this.$config.defaultImages]
+          if(ignoreFirst){
+            this.cacheImages.splice(0,1)
+          }
         }
       })
     }
   },
   mounted() {
-    const rdHomeBg = window.localStorage.getItem('RD-HOME-BG')
-    if(rdHomeBg){
-      this.cacheImgList()
-      this.options.images = [JSON.parse(rdHomeBg)]
+    let rdHomeBg = window.localStorage.getItem('RD-HOME-BG')
+    if(rdHomeBg!=="undefined"&&rdHomeBg!=="null"&&rdHomeBg){
+      rdHomeBg = [JSON.parse(rdHomeBg)]
+      this.cacheImgList(rdHomeBg[0][0].indexOf('default01')>-1)
+      this.options.images = rdHomeBg
     }else {
       this.getImgList()
     }
