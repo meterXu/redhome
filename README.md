@@ -1,24 +1,4 @@
 # devhome
+> 帮助小朋友不迷路的研发之家
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![rdhome](https://server.isaacxu.com:3001/exca/getImg?code=v6qxwy)
