@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import CoinSlider from "@/components/CoinSlider";
 export default {
   name: 'Wallpaper',
@@ -45,29 +45,29 @@ export default {
       window.localStorage.setItem('RD-HOME-BG',JSON.stringify(this.options.images[this.showImgNum]))
     },
     getImgList(){
-      axios.get('/bing/list').then(res=>{
-        if(res&&res.data&&res.data.length>0){
-          this.options.images = res.data.map(c=>{
-            return [c,'javascript:;']
-          })
-        }else{
+      // axios.get('/bing/list').then(res=>{
+      //   if(res&&res.data&&res.data.length>0){
+      //     this.options.images = res.data.map(c=>{
+      //       return [c,'javascript:;']
+      //     })
+      //   }else{
           this.options.images = [...this.$config.defaultImages]
-        }
-      })
+      //   }
+      // })
     },
     cacheImgList(ignoreFirst){
-      axios.get('/bing/list').then(res=>{
-        if(res&&res.data&&res.data.length>0){
-          this.cacheImages = res.data.map(c=>{
-            return [c,'javascript:;']
-          })
-        }else{
+      // axios.get('/bing/list').then(res=>{
+      //   if(res&&res.data&&res.data.length>0){
+      //     this.cacheImages = res.data.map(c=>{
+      //       return [c,'javascript:;']
+      //     })
+      //   }else{
           this.cacheImages = [...this.$config.defaultImages]
           if(ignoreFirst){
             this.cacheImages.splice(0,1)
           }
-        }
-      })
+      //   }
+      // })
     }
   },
   mounted() {
