@@ -29,13 +29,14 @@ export default {
   },
   methods: {
     refresh() {
+      const nowBgIndex = this.cloneImages.findIndex(c=>c===this.bgUrl)
+      this.cloneImages.splice(nowBgIndex, 1);
       const max = this.cloneImages.length - 1;
       const min = 0;
       const randomNum = Math.floor(Math.random() * (max - min)) + min;
       this.bgUrl = this.cloneImages[randomNum].toString();
       localStorage.setItem(this.stBgKey, this.bgUrl);
-      this.cloneImages.splice(randomNum, 1);
-      if (this.cloneImages.length === 0) {
+      if (max === 0) {
         this.cloneImages = [...this.images];
       }
     },
@@ -58,7 +59,7 @@ export default {
       const storageBg = localStorage.getItem(this.stBgKey);
       if (storageBg) {
         this.bgUrl = storageBg;
-       await this.getImgList(this.page);
+        this.getImgList(this.page);
       } else {
         await this.getImgList(this.page);
         if (this.images) {
@@ -81,6 +82,7 @@ export default {
 .wallpaper {
   width: 100vw;
   height: 100vh;
+  background-color: #333;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
