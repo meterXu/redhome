@@ -1,92 +1,88 @@
 <template>
-  <div>
-    <CoinSlider ref="coinSlider" :options="options"/>
+  <div :style="bgStyle" class="wallpaper">
   </div>
 </template>
 
 <script>
-// import axios from 'axios'
-import CoinSlider from "@/components/CoinSlider";
+import axios from "axios";
 export default {
-  name: 'Wallpaper',
+  name: "Wallpaper",
   props: {
-    msg: String
+    msg: String,
   },
-  components:{
-    CoinSlider
-  },
-  data(){
+  data() {
     return {
-      options:{
-        width:'100%',
-        height:window.innerHeight,
-        delay:24*3600*1000*7,
-        sDelay:50,
-        navigation:false,
-        bgOpacity: 0.8,
-        images:[]
-      },
-      cacheImages:[],
-      showImgNum:0
+      bgUrl: null,
+      images: null,
+      cloneImages:null,
+      stPageKey:'RDHOME-PAGE',
+      stBgKey:'RDHOME-BG',
+      page:1
+    };
+  },
+  computed: {
+    bgStyle() {
+      return {
+        background: "url(" + this.bgUrl + ")",
+      };
     }
   },
-  methods:{
-    refresh(){
-      if(this.showImgNum<this.options.images.length-1){
-        if(this.showImgNum===Math.floor(this.options.images.length/2)){
-          this.cacheImgList()
-        }
-        this.showImgNum++
-        this.$refs.coinSlider.refresh()
-      }else{
-        this.showImgNum=0
-        this.options.images = [...this.cacheImages]
+  methods: {
+    refresh() {
+      const max = this.cloneImages.length - 1;
+      const min = 0;
+      const randomNum = Math.floor(Math.random() * (max - min)) + min;
+      this.bgUrl = this.cloneImages[randomNum].toString();
+      localStorage.setItem(this.stBgKey, this.bgUrl);
+      this.cloneImages.splice(randomNum, 1);
+      if (this.cloneImages.length === 0) {
+        this.cloneImages = [...this.images];
       }
-      window.localStorage.setItem('RD-HOME-BG',JSON.stringify(this.options.images[this.showImgNum]))
     },
-    getImgList(){
-      // axios.get('/bing/list').then(res=>{
-      //   if(res&&res.data&&res.data.length>0){
-      //     this.options.images = res.data.map(c=>{
-      //       return [c,'javascript:;']
-      //     })
-      //   }else{
-          this.options.images = [...this.$config.defaultImages]
-      //   }
-      // })
+    getImgList(p) {
+      return new Promise((resolve, reject) => {
+        try {
+          axios.get(`/bing/webRand?p=${p}`).then((res) => {
+            if (res.data) {
+              this.images = res.data;
+              this.cloneImages = [...this.images]
+            }
+            resolve();
+          });
+        } catch (err) {
+          reject();
+        }
+      });
     },
-    cacheImgList(ignoreFirst){
-      // axios.get('/bing/list').then(res=>{
-      //   if(res&&res.data&&res.data.length>0){
-      //     this.cacheImages = res.data.map(c=>{
-      //       return [c,'javascript:;']
-      //     })
-      //   }else{
-          this.cacheImages = [...this.$config.defaultImages]
-          if(ignoreFirst){
-            this.cacheImages.splice(0,1)
-          }
-      //   }
-      // })
-    }
+    async initBg() {
+      await this.getImgList(this.page);
+      const storageBg = localStorage.getItem(this.stBgKey);
+      if (storageBg) {
+        this.bgUrl = storageBg;
+      } else {
+        if (this.images) {
+          this.bgUrl = this.images[0];
+        }
+      }
+    },
   },
-  mounted() {
-    let rdHomeBg = window.localStorage.getItem('RD-HOME-BG')
-    if(rdHomeBg!=="undefined"&&rdHomeBg!=="null"&&rdHomeBg){
-      rdHomeBg = [JSON.parse(rdHomeBg)]
-      this.cacheImgList(rdHomeBg[0][0].indexOf('default01')>-1)
-      this.options.images = rdHomeBg
-    }else {
-      this.getImgList()
-    }
-
-  }
-}
+  created() {
+    this.initBg();
+  },
+};
 </script>
 <style scoped>
-.refresh{
+.refresh {
   position: absolute;
   right: 20px;
   bottom: 20px;
+}
+.wallpaper {
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.3s;
 }
 </style>
