@@ -70,7 +70,7 @@
         vertical-align: middle;
         text-align: center;
         top: 20%;
-        margin-bottom: 120px;
+        padding-bottom: 90px;
         position: relative;
         display: grid;
         grid-template-columns: repeat(auto-fill, 215px);
@@ -147,7 +147,7 @@
 
     @media screen and (max-width: 768px) {
         .products {
-            top: 5%;
+            top: 10vw;
             width: 90%;
             grid-template-columns: repeat(auto-fill, 100%);
         }
