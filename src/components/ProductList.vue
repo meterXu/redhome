@@ -70,20 +70,14 @@
         vertical-align: middle;
         text-align: center;
         top: 20%;
+        margin-bottom: 120px;
         position: relative;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 215px);
+        grid-gap: 20px 30px;
+        justify-content: center;
     }
 
-    .products:after {
-        content: ".";
-        clear: both;
-        display: block;
-        height: 0;
-        overflow: hidden;
-        visibility: hidden;
-    }
 
     .products li {
         width: 215px;
@@ -96,9 +90,6 @@
         box-shadow: 0px 1px 2px #c3bfbf;
         text-shadow: 0px 1px 0px #333;
         cursor: pointer;
-        margin-left: 15px;
-        margin-right: 15px;
-        margin-bottom: 20px;
         user-select: none;
     }
 
@@ -154,10 +145,11 @@
         background-color: rgba(44, 118, 211, 0.2);
     }
 
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 768px) {
         .products {
-            justify-content: center;
+            top: 5%;
             width: 90%;
+            grid-template-columns: repeat(auto-fill, 100%);
         }
 
         .products li {
