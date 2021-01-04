@@ -23,7 +23,7 @@ export default {
   computed: {
     bgStyle() {
       return {
-        background: "url(" + this.bgUrl + ")",
+        backgroundImage: "url(" + this.bgUrl + ")",
       };
     }
   },
