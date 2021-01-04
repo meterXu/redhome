@@ -55,11 +55,12 @@ export default {
       });
     },
     async initBg() {
-      await this.getImgList(this.page);
       const storageBg = localStorage.getItem(this.stBgKey);
       if (storageBg) {
         this.bgUrl = storageBg;
+       await this.getImgList(this.page);
       } else {
+        await this.getImgList(this.page);
         if (this.images) {
           this.bgUrl = this.images[0];
         }
