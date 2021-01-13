@@ -86,6 +86,6 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: all 0.3s;
+  transition: width,height 0.3s;
 }
 </style>
