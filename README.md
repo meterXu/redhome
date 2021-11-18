@@ -7,6 +7,6 @@
 ![rd-home](https://user-images.githubusercontent.com/6405875/127792441-272d9b60-3c5d-4eda-a9f5-a9d9c823042a.png)
 
 ## 功能
-* 链接网址配置
+* 网址地址配置
 * 自适应终端，pc端和移动端均可访问
 * 切换壁纸，切换最近12天内必应壁纸
