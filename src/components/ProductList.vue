@@ -86,8 +86,8 @@
         font-size: 3em;
         font-weight: normal;
         color: #222222;
-        background: rgba(232, 232, 232, 0.2);
-        box-shadow: 0px 1px 2px #c3bfbf;
+        background: hsl(0deg 1% 12% / 27%);
+        box-shadow: 0px 1px 2px 0px #3c3c3c;
         text-shadow: 0px 1px 0px #333;
         cursor: pointer;
         user-select: none;
@@ -97,7 +97,7 @@
         height: 100%;
         width: 100%;
         display: block;
-        color: #41ffe5;
+        color: #ffffff;
         text-decoration-line: none;
     }
 
