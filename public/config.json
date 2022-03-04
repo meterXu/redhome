@@ -45,17 +45,17 @@
     }
   ],
   "defaultImages":[
-    ["./img/default01.jpg","javascript:;"],
-    ["./img/default02.jpg","javascript:;"],
-    ["./img/default03.jpg","javascript:;"],
-    ["./img/default04.jpg","javascript:;"],
-    ["./img/default05.jpg","javascript:;"],
-    ["./img/default06.jpg","javascript:;"],
-    ["./img/default07.jpg","javascript:;"],
-    ["./img/default08.jpg","javascript:;"],
-    ["./img/default09.jpg","javascript:;"],
-    ["./img/default10.jpg","javascript:;"],
-    ["./img/default11.jpg","javascript:;"],
-    ["./img/default12.jpg","javascript:;"]
+    "./img/default01.jpg",
+    "./img/default02.jpg",
+    "./img/default03.jpg",
+    "./img/default04.jpg",
+    "./img/default05.jpg",
+    "./img/default06.jpg",
+    "./img/default07.jpg",
+    "./img/default08.jpg",
+    "./img/default09.jpg",
+    "./img/default10.jpg",
+    "./img/default11.jpg",
+    "./img/default12.jpg"
   ]
 }

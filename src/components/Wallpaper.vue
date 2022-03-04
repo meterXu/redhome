@@ -43,6 +43,7 @@ export default {
     getImgList(p) {
       return new Promise((resolve, reject) => {
         try {
+          if(this.$config.baseUrl){
           axios.get(`/bing/webRand?p=${p}`).then((res) => {
             if (res.data) {
               this.images = res.data;
@@ -50,6 +51,12 @@ export default {
             }
             resolve();
           });
+          }else{
+            this.images = this.$config.defaultImages;
+            this.cloneImages = [...this.images]
+            resolve();
+          }
+
         } catch (err) {
           reject();
         }
