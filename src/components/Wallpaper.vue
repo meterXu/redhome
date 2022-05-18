@@ -22,9 +22,13 @@ export default {
   },
   computed: {
     bgStyle() {
-      return {
-        backgroundImage: "url(" + this.bgUrl + ")",
-      };
+      if(this.bgUrl){
+        return {
+          backgroundImage: "url(" + this.bgUrl + ")",
+        }
+      }else{
+        return {}
+      }
     }
   },
   methods: {
