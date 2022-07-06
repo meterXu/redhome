@@ -1,14 +1,18 @@
 {
-  "name": "devhome",
+  "name": "redhome",
   "description": "帮助小朋友不迷路的研发之家",
-  "version": "0.1.1",
-  "private": true,
+  "version": "0.1.2",
+  "private": false,
   "scripts": {
     "dev": "node ./bin/www",
     "serve": "vue-cli-service serve",
     "build:web": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "bin": {
+    "redhome": "/bin/www"
+  },
+  "files": ["bin","common","dist","routes","views","app.js","package.json"],
   "dependencies": {
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
