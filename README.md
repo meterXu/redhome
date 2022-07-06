@@ -4,7 +4,7 @@
 
 [demo](https://app.isaacxu.com/webapi/)
 
-![rd-home](https://user-images.githubusercontent.com/6405875/127792441-272d9b60-3c5d-4eda-a9f5-a9d9c823042a.png)
+![rd-home](public/demo.gif)
 
 ## 功能
 * 网址地址配置
