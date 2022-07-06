@@ -21,9 +21,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(allowCrossDomain);
-app.use('/', indexRouter);
 app.use('/bing',bingRouter);
 
 // catch 404 and forward to error handler

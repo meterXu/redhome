@@ -1,6 +1,7 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 router.get('/', function (req, res, next) {
-    res.render('index', { title: '欢迎使用mtAPI' });
+    res.sendFile(path.join(__dirname+'/dist/index.html'));
 });
 module.exports = router;

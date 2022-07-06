@@ -4,9 +4,8 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "dev": "npm run web && npm run server",
-    "web": "vue-cli-service serve",
-    "server": "node ./bin/www",
+    "dev": "node ./bin/www",
+    "serve": "vue-cli-service serve",
     "build:web": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
