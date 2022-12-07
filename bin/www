@@ -9,8 +9,15 @@ const debug = require('debug')('mtapi:server');
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
-const config = require('../common/config')
+const path = require('path')
 
+const {existsSync, mkdirSync} = require('fs')
+const settingConf = {
+    rootPath:process.env.HOME || process.env.USERPROFILE,
+    dirName:".redhome",
+    settingFileName:'setting.json',
+    dataFileName:'data.json'
+}
 
 
 function normalizePort(val) {
@@ -69,10 +76,39 @@ function onListening() {
     debug('Listening on ' + bind);
 }
 
+function initConfigFile(){
+    const rootDir = path.join(settingConf.rootPath,settingConf.dirName)
+    const settingFile = path.join(rootDir,settingConf.settingFileName)
+    if(!existsSync(rootDir)){
+        fs.mkdirSync(rootDir)
+    }
+    if(!existsSync(settingFile)){
+        fs.writeFileSync(settingFile,JSON.stringify(
+            {
+                ssl:{
+                    enable:false,
+                    key:null,
+                    cert:null,
+                    port:3001
+                },
+                port:3000,
+                bing:{
+                    today:"https://bing.ioliu.cn/v1/?d=0&type=json",
+                    random:"https://bing.ioliu.cn/v1/rand?type=json",
+                    web:'https://bing.ioliu.cn/'
+                }
+            }
+        ),{ 'flag': 'a' })
+    }
+}
+
 /**
  * Get port from environment and store in Express.
  */
 
+ initConfigFile()
+
+const config = require(path.join(settingConf.rootPath,settingConf.dirName,settingConf.settingFileName))
 const port = normalizePort(process.env.PORT || config.port);
 app.set('port', port);
 
